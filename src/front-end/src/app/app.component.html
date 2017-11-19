@@ -1,0 +1,6 @@
+<h3>Energy use</h3>
+Showing: <button (click)='previous();'>&lt;</button> {{currentDate|date:'EEEE, MMMM d, yyyy'}} <button>&gt;</button>
+<br />
+<ng-container *ngFor="let dp of datapoints">
+  <div style='background-color: green; display: inline-block;' [style.width.px]='10' [style.height.px]='dp.consumptionPower / 20' ></div>
+</ng-container>

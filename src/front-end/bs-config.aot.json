@@ -1,0 +1,12 @@
+{
+  "open": false,
+  "logLevel": "verbose",
+  "port": 8082,
+  "files": ["./dist/out-rollup/src/**/*.{html,htm,css,js}"],
+  "server": {
+    "baseDir": "dist/out-rollup/src",
+    "routes": {
+      "/node_modules": "node_modules"
+    }
+  }
+}
