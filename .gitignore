@@ -1,0 +1,8 @@
+.DS_Store
+
+app.yaml
+**/dist/*
+**/intermediate/*
+**/node_modules/*
+**/output/*
+**/npm-debug.log

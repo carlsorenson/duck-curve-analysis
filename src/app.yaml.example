@@ -1,0 +1,14 @@
+runtime: go
+api_version: go1
+
+handlers:
+- url: /.*
+  script: _go_app
+
+skip_files:
+- ^front-end$
+
+env_variables:
+  NEURIO_CLIENT_SECRET: ''
+  NEURIO_CLIENT_ID: ''
+  NEURIO_SENSOR_ID: ''
