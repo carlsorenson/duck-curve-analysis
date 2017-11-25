@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IDatapoint } from './datapoint';
 import { EnergyService } from './energy.service';
 
@@ -6,16 +6,33 @@ import { EnergyService } from './energy.service';
   selector: 'my-app',
   templateUrl: './app.component.html'
 })
-export class AppComponent  { 
-  
+export class AppComponent implements OnInit {
+
   currentDate: Date;
   yesterday: Date;
-  datapoints: IDatapoint[];
-  
+
+  datapoints: any[];
+
+  getLineArray(): number[] {
+    return Array(15);
+  }
+
+  wattsToPixels(watts: number, pxOffset: number = 0): number {
+    var px = watts / 40 + pxOffset;
+    return px;
+  }
+
   previous(): void {
-    console.log('in previous');
-    this.currentDate.setDate(this.currentDate.getDate() - 1);
-    this.currentDate = this.currentDate;
+    const newDate = new Date(this.currentDate.valueOf());
+    newDate.setDate(newDate.getDate() - 1)
+    this.currentDate = newDate;
+    this.updateDatapoints();
+  }
+
+  next(): void {
+    const newDate = new Date(this.currentDate.valueOf());
+    newDate.setDate(newDate.getDate() + 1)
+    this.currentDate = newDate;
     this.updateDatapoints();
   }
 

@@ -25,9 +25,8 @@ export class EnergyService {
   getEnergyForDate(selectedDate: Date): Observable<IDatapoint[]> {
     const url = this._apiUrl + this.zeroPad(selectedDate.getUTCFullYear()) + "-" + this.zeroPad(selectedDate.getUTCMonth() + 1) + "-" + this.zeroPad(selectedDate.getUTCDate())
     console.log(selectedDate, selectedDate.getDate())
-    console.log('hi!', url);
     return this._http.get<IDatapoint[]>(url)
-        .do(data => console.log('All: ' + JSON.stringify(data)))
+        //.do(data => console.log('All: ' + JSON.stringify(data)))
         .catch(this.handleError);
   }
 
