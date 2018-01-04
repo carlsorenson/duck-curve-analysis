@@ -10,7 +10,7 @@ import { IDatapoint } from './datapoint';
 
 @Injectable()
 export class EnergyService {
-  private _apiUrl = 'https://duck-curve-analysis.appspot.com/api/v1/day/';
+  private _apiUrl = 'https://duck-curve-analysis.appspot.com/api/day/';
 
   constructor(private _http: HttpClient) { }
 

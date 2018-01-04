@@ -5,7 +5,7 @@ import (
 )
 
 func init() {
-	http.HandleFunc("/api/v1/", apiHandler)
+	http.HandleFunc("/api/", apiHandler)
 	http.Handle("/", http.FileServer(http.Dir("output")))
 	//http.ListenAndServe(":80", http.FileServer(http.Dir("output")))
 }
