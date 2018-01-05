@@ -3,30 +3,27 @@ Showing: <button (click)='previous();'>&lt;</button> {{currentDate|date:'EEEE, M
 <br />
 
 <div style='width: 100%;  margin-top: 10px;'>
-  <svg viewBox="0 0 1215 500">
+  <svg viewBox="0 0 1255 550" font-family="Verdana" font-size='12'>
+    <!-- Horizontal axis -->
+    <line x1="45" y1="490" x2="1250" y2="490" stroke-width="1" stroke="black"/>
+    <!-- Vertical axis -->
+    <line x1="45" y1="0" x2="45" y2="490" stroke-width="1" stroke="black"/>
+    <!-- Vertical axis crossticks and labels -->
+    <line x1="45" [attr.y1]='490 - wattsToPixels(5000)' x2="1255" [attr.y2]='490 - wattsToPixels(5000)' stroke-width="1" stroke="black"/>
+    <line x1="45" [attr.y1]='490 - wattsToPixels(10000)' x2="1255" [attr.y2]='490 - wattsToPixels(10000)' stroke-width="1" stroke="black"/>
+    <line x1="45" [attr.y1]='490 - wattsToPixels(15000)' x2="1255" [attr.y2]='490 - wattsToPixels(15000)' stroke-width="1" stroke="black"/>
+    <text x='5' [attr.y]='493 - wattsToPixels(5000)'>5 kW</text>
+    <text x='0' [attr.y]='493 - wattsToPixels(10000)'>10 kW</text>
+    <text x='0' [attr.y]='493 - wattsToPixels(15000)'>15 kW</text>
     <ng-container *ngFor="let dp of datapoints; let i = index">
-      <rect [attr.x]='i * 25 + 10' [attr.y]='490 - wattsToPixels(dp.consumptionPower)' [attr.height]='wattsToPixels(dp.consumptionPower)' width='20' fill='green' shape-rendering='crispEdges'>
+      <!-- Bar chart bars -->
+      <rect [attr.x]='i * 25 + 55' [attr.y]='490 - wattsToPixels(dp.consumptionPower)' [attr.height]='wattsToPixels(dp.consumptionPower)' width='20' fill='green' shape-rendering='crispEdges'>
         <title>{{dp.consumptionPower + " Watts at " + (dp.timestamp|date:"HH:mm")}}</title>
       </rect>
+      <!-- Time labels -->
+      <text *ngIf='i % 2 == 0' x="1" y="0" [attr.transform]="'translate(' + (i * 25 + 70) + ',530) rotate(-90)'" >
+        {{dp.timestamp|date:"HH:mm"}}
+      </text>
     </ng-container>
   </svg>
 </div>
-
-<!-- <div style='width: 100px; height: 50px;'>
-  <svg version="1.1" baseProfile="full" width="100%" viewbox='0 0 200 300' xmlns="http://www.w3.org/2000/svg">
-    <rect width="100%" height="100%" fill="red" />
-    <circle cx="150" cy="100" r="80" fill="green" />
-    <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text>
-  </svg>
-</div> -->
-
-<!-- <div id='graph-container'>
-  <div style='background-color: white; display: inline-block;' [style.width.px]='1' [style.height.px]='wattsToPixels(16000)' ></div>
-  <ng-container *ngFor="let dp of datapoints">
-    <div style='background-color: green; display: inline-block;' [style.width.px]='10' [style.height.px]='wattsToPixels(dp.consumptionPower)' title='{{dp.consumptionPower + " Watts at " + (dp.timestamp|date:"HH:mm")}}' ></div>
-  </ng-container>
-  <div style='width: 687px; height: 1px; background-color: gray;' [style.marginTop.px]='wattsToPixels(0, -4)'></div>
-  <ng-container *ngFor="let line of getLineArray()">
-    <div style='width: 687px; height: 1px; background-color: gray;' [style.marginTop.px]='wattsToPixels(-1000, -1)'></div>
-  </ng-container>
-</div> -->
