@@ -28,6 +28,8 @@ func init() {
 }
 
 func apiHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Add("Access-Control-Allow-Origin", "*")
+
 	pathParts := strings.Split(r.URL.Path, "/")
 	mode := pathParts[2]
 	dateString := pathParts[3]
@@ -42,8 +44,7 @@ func apiHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		output, _ := json.Marshal(samples)
-		//w.Header().Add("Content-Type", "application/json")
-		//w.Header().Add("Access-Control-Allow-Origin", "*")
+		w.Header().Add("Content-Type", "application/json")
 		w.Write(output)
 	case "test":
 		fmt.Fprint(w, "We will now perform a test\n")
@@ -75,7 +76,7 @@ func getDayDatapoints(w http.ResponseWriter, r *http.Request, dateString string,
 	// }
 	//fmt.Fprint(w, "Not in cache")
 	startTime := requestedDate.Format(time.RFC3339)
-	endTime := requestedDate.Add(time.Hour * 24).Format(time.RFC3339)
+	endTime := requestedDate.Add(time.Hour * 24).Add(time.Minute * -30).Format(time.RFC3339)
 	//fmt.Fprintf(w, "%v\n%v", startTime, endTime)
 
 	if bearerToken == "" {

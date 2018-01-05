@@ -6,7 +6,13 @@ handlers:
   script: _go_app
 
 skip_files:
-- ^front-end$
+- ^(.*/)?#.*#$
+- ^(.*/)?.*~$
+- ^(.*/)?.*\.py[co]$
+- ^(.*/)?.*/RCS/.*$
+- ^(.*/)?\..*$
+- front-end/
+- app.yaml.example
 
 env_variables:
   NEURIO_CLIENT_SECRET: ''
