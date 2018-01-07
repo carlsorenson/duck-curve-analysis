@@ -4,6 +4,14 @@ h1 {
   font-size: 250%;
 }
 
-#graph-container {
-  height: 500px;
+.navbar {
+  background-color: mediumaquamarine;
+}
+
+main {
+  padding: 15px;
+}
+
+#chart-container {
+  width: 90%;
 }

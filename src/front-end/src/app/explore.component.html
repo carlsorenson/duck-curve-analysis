@@ -1,0 +1,31 @@
+<main>
+  <h3>Energy use</h3>
+  Showing: <button (click)='previous();'>&lt;</button> {{currentDate|date:'EEEE, MMMM d, yyyy'}} <button (click)='next();'>&gt;</button>
+  <br />
+
+  <div style='margin-top: 10px;'>
+    <svg id='chart-container' viewBox="0 0 1255 550" font-family="Verdana" font-size='12'>
+      <!-- Horizontal axis -->
+      <line x1="45" y1="490" x2="1250" y2="490" stroke-width="1" stroke="black"/>
+      <!-- Vertical axis -->
+      <line x1="45" y1="0" x2="45" y2="490" stroke-width="1" stroke="black"/>
+      <!-- Vertical axis crossticks and labels -->
+      <line x1="45" [attr.y1]='490 - wattsToPixels(5000)' x2="1255" [attr.y2]='490 - wattsToPixels(5000)' stroke-width="1" stroke="black"/>
+      <line x1="45" [attr.y1]='490 - wattsToPixels(10000)' x2="1255" [attr.y2]='490 - wattsToPixels(10000)' stroke-width="1" stroke="black"/>
+      <line x1="45" [attr.y1]='490 - wattsToPixels(15000)' x2="1255" [attr.y2]='490 - wattsToPixels(15000)' stroke-width="1" stroke="black"/>
+      <text x='5' [attr.y]='493 - wattsToPixels(5000)'>5 kW</text>
+      <text x='0' [attr.y]='493 - wattsToPixels(10000)'>10 kW</text>
+      <text x='0' [attr.y]='493 - wattsToPixels(15000)'>15 kW</text>
+      <ng-container *ngFor="let dp of datapoints; let i = index">
+        <!-- Bar chart bars -->
+        <rect [attr.x]='i * 25 + 55' [attr.y]='490 - wattsToPixels(dp.consumptionPower)' [attr.height]='wattsToPixels(dp.consumptionPower)' width='20' fill='#6a8acc' shape-rendering='crispEdges'>
+          <title>{{dp.consumptionPower + " Watts at " + (dp.timestamp|date:"HH:mm")}}</title>
+        </rect>
+        <!-- Time labels -->
+        <text *ngIf='i % 2 == 0' x="1" y="0" [attr.transform]="'translate(' + (i * 25 + 70) + ',530) rotate(-90)'" >
+          {{dp.timestamp|date:"HH:mm"}}
+        </text>
+      </ng-container>
+    </svg>
+  </div>
+</main>

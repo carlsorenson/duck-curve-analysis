@@ -4,7 +4,7 @@ import { EnergyService } from './energy.service';
 
 @Component({
   selector: 'my-app',
-  templateUrl: './app.component.html'
+  templateUrl: './conclusions.component.html'
 })
-export class AppComponent  {
+export class ConclusionsComponent {
 }
