@@ -1,6 +1,17 @@
 <main>
   <h3>Energy use</h3>
-  Showing: <button (click)='previous();'>&lt;</button> {{currentDate|date:'EEEE, MMMM d, yyyy'}} <button (click)='next();'>&gt;</button>
+  Showing:
+  <select (change)='onChangeDisplayMode($event.target.value)'>
+    <option *ngFor='let opt of displayModes' [value]='opt.value' [selected]='opt.value == displayMode'>{{opt.text}}</option>
+  </select>
+
+  <div *ngIf='displayMode != "single";'>
+    <button (click)='previousMonth();' [disabled]='startDate >= currentMonth'>&lt;</button> {{currentMonth|date:'MMMM yyyy'}} <button (click)='nextMonth();' [disabled]='currentMonth >= yesterday'>&gt;</button>
+  </div>
+
+  <div *ngIf='displayMode == "single";'>
+    <button (click)='previousDay();'  [disabled]='startDate >= currentDate'>&lt;</button> {{currentDate|date:'EEEE, MMMM d, yyyy'}} <button (click)='nextDay();' [disabled]='currentDate >= yesterday'>&gt;</button>
+  </div>
   <br />
 
   <div style='margin-top: 10px;'>

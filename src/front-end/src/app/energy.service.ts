@@ -10,7 +10,7 @@ import { IDatapoint } from './datapoint';
 
 @Injectable()
 export class EnergyService {
-  private _apiUrl = 'https://duck-curve-analysis.appspot.com/api/day/';
+  private _apiUrl = 'https://duck-curve-analysis.appspot.com/api';
 
   constructor(private _http: HttpClient) { }
 
@@ -22,8 +22,16 @@ export class EnergyService {
     return stringValue
   }
 
+  getEnergyAverages(mode: string, selectedDate: Date): Observable<IDatapoint[]> {
+    const url = `${this._apiUrl}/average/${mode}/${this.zeroPad(selectedDate.getUTCFullYear())}-${this.zeroPad(selectedDate.getUTCMonth() + 1)}-${this.zeroPad(selectedDate.getUTCDate())}`
+    console.log(selectedDate, selectedDate.getDate())
+    return this._http.get<IDatapoint[]>(url)
+        //.do(data => console.log('All: ' + JSON.stringify(data)))
+        .catch(this.handleError);
+  }
+
   getEnergyForDate(selectedDate: Date): Observable<IDatapoint[]> {
-    const url = this._apiUrl + this.zeroPad(selectedDate.getUTCFullYear()) + "-" + this.zeroPad(selectedDate.getUTCMonth() + 1) + "-" + this.zeroPad(selectedDate.getUTCDate())
+    const url = `${this._apiUrl}/day/${this.zeroPad(selectedDate.getUTCFullYear())}-${this.zeroPad(selectedDate.getUTCMonth() + 1)}-${this.zeroPad(selectedDate.getUTCDate())}`
     console.log(selectedDate, selectedDate.getDate())
     return this._http.get<IDatapoint[]>(url)
         //.do(data => console.log('All: ' + JSON.stringify(data)))

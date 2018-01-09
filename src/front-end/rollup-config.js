@@ -24,6 +24,9 @@ export default {
       uglify(),
       copy({
         "intermediate/index.html": "../output/index.html",
+        "intermediate/index.html": "../output/explore/index.html",
+        "intermediate/index.html": "../output/conclusions/index.html",
+        "intermediate/index.html": "../output/warmup/index.html",
         "intermediate/styles.css": "../output/styles.css",
         "node_modules/core-js/client/shim.min.js": "../output/node_modules/core-js/client/shim.min.js",
         "node_modules/zone.js/dist/zone.js": "../output/node_modules/zone.js/dist/zone.js"

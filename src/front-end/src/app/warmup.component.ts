@@ -7,6 +7,7 @@ import { EnergyService } from './energy.service';
   templateUrl: './warmup.component.html'
 })
 export class WarmupComponent {
+  status: string = "Test";
 
   // currentDate: Date;
   // yesterday: Date;
@@ -21,6 +22,12 @@ export class WarmupComponent {
   //   var px = watts / 40 + pxOffset;
   //   return px;
   // }
+  initiateWarmup() {
+    for (var i = 1; i < 10; i++) {
+      this.status = i.toString();
+      
+    }
+  }
 
   // previous(): void {
   //   const newDate = new Date(this.currentDate.valueOf());

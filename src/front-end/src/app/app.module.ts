@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EnergyService } from './energy.service'
 
 import { AppComponent }  from './app.component';
+import { FormsModule } from '@angular/forms';
 import { HomeComponent }  from './home.component';
 import { ExploreComponent }  from './explore.component';
 import { ConclusionsComponent }  from './conclusions.component';
@@ -14,7 +15,8 @@ import { WarmupComponent } from './warmup.component';
 
 @NgModule({
   imports:      [ 
-    BrowserModule, 
+    BrowserModule,
+    FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'explore', component: ExploreComponent },
