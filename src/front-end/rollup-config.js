@@ -28,6 +28,9 @@ export default {
         "intermediate/index.html": "../output/conclusions/index.html",
         "intermediate/index.html": "../output/warmup/index.html",
         "intermediate/styles.css": "../output/styles.css",
+        "intermediate/duck_curve_wiki.png": "../output/duck_curve_wiki.png",
+        "intermediate/october.png": "../output/october.png",
+        "intermediate/january.png": "../output/january.png",
         "node_modules/core-js/client/shim.min.js": "../output/node_modules/core-js/client/shim.min.js",
         "node_modules/zone.js/dist/zone.js": "../output/node_modules/zone.js/dist/zone.js"
       })

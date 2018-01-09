@@ -11,7 +11,10 @@
         "assets",
         "api",
         "favicon.ico",
-        "styles.css"
+        "styles.css",
+        "duck_curve_wiki.png",
+        "october.png",
+        "january.png"
       ],
       "index": "index-jit.html",
       "main": "main.ts",

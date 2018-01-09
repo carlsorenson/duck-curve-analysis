@@ -6,7 +6,10 @@
       "/index-jit.html": "src/index-jit.html",
       "/systemjs.config.js": "src/systemjs.config.js",
       "/systemjs-angular-loader.js": "src/systemjs-angular-loader.js",
-      "/styles.css": "src/styles.css"
+      "/styles.css": "src/styles.css",
+      "/duck_curve_wiki.png": "src/duck_curve_wiki.png",
+      "/october.png": "src/october.png",
+      "/january.png": "src/january.png"
     }
   }
 }

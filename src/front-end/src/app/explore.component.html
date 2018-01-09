@@ -14,6 +14,11 @@
   </div>
   <br />
 
+  <!-- Legend -->
+  <div *ngIf='displayMode != "single";' style='margin: 15px 0;'>
+    The yellow line shows potential solar generation curve. Red line is an example duck curve.
+  </div>
+
   <!-- Chart for monthly averages -->
   <div *ngIf='displayMode != "single";' style='margin-top: 10px;'>
     <svg id='chart-container' viewBox="0 0 1255 550" font-family="Verdana" font-size='14'>
@@ -42,6 +47,83 @@
           {{dp.timestamp|date:"HH:mm"}}
         </text>
       </ng-container>
+      <!-- Solar profile -->
+      <polyline [attr.points]='(14 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(0)) + ", " 
+        + (15 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(150)) + ", " 
+        + (16 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(450)) + ", " 
+        + (17 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(1500)) + ", " 
+        + (18 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2500)) + ", " 
+        + (19 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(3300)) + ", " 
+        + (20 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(3600)) + ", " 
+        + (21 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(3900)) + ", " 
+        + (22 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(4100)) + ", " 
+        + (23 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(4200)) + ", " 
+        + (24 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(4250)) + ", " 
+        + (25 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(4300)) + ", " 
+        + (26 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(4350)) + ", " 
+        + (27 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(4400)) + ", " 
+        + (28 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(4400)) + ", " 
+        + (29 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(4400)) + ", " 
+        + (30 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(4200)) + ", " 
+        + (31 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(3900)) + ", " 
+        + (32 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(3300)) + ", " 
+        + (33 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2200)) + ", " 
+        + (34 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(1500)) + ", " 
+        + (35 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(450)) + ", " 
+        + (36 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(180)) + ", " 
+        + (37 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(100)) + ", " 
+        + (38 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(0))'
+        fill='none' stroke='gold' stroke-width='4' ></polyline>
+      <polyline [attr.points]='""
+        + (0 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2400)) + ", " 
+        + (1 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2250)) + ", " 
+        + (2 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2200)) + ", " 
+        + (3 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2150)) + ", " 
+        + (4 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2100)) + ", " 
+        + (5 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2050)) + ", " 
+        + (6 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2025)) + ", " 
+        + (7 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2000)) + ", " 
+        + (8 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(1975)) + ", " 
+        + (9 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(1975)) + ", " 
+        + (10 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2000)) + ", " 
+        + (11 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2050)) + ", " 
+        + (12 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2100)) + ", " 
+        + (13 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2150)) + ", " 
+        + (14 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2225)) + ", " 
+        + (15 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2150)) + ", " 
+        + (16 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2025)) + ", " 
+        + (17 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(1850)) + ", " 
+        + (18 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(1625)) + ", " 
+        + (19 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(1550)) + ", " 
+        + (20 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(1475)) + ", " 
+        + (21 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(1250)) + ", " 
+        + (22 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(1200)) + ", " 
+        + (23 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(1150)) + ", " 
+        + (24 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(1100)) + ", " 
+        + (25 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(1050)) + ", " 
+        + (26 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(1000)) + ", " 
+        + (27 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(1025)) + ", " 
+        + (28 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(1050)) + ", " 
+        + (29 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(1225)) + ", " 
+        + (30 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(1800)) + ", " 
+        + (31 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2400)) + ", " 
+        + (32 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2900)) + ", " 
+        + (33 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(3700)) + ", " 
+        + (34 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(4100)) + ", " 
+        + (35 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(4400)) + ", " 
+        + (36 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(4350)) + ", " 
+        + (37 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(4200)) + ", " 
+        + (38 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(4050)) + ", " 
+        + (39 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(3900)) + ", " 
+        + (40 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(3600)) + ", " 
+        + (41 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(3400)) + ", " 
+        + (42 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(3100)) + ", " 
+        + (43 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2900)) + ", " 
+        + (44 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2800)) + ", " 
+        + (45 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2700)) + ", " 
+        + (46 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2600)) + ", " 
+        + (47 * 25 + 65) + " " + (490 - wattsToPixelsMonthly(2550))'
+        fill='none' stroke='firebrick' stroke-width='4' ></polyline>
     </svg>
   </div>
 

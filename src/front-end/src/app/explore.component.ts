@@ -17,9 +17,9 @@ export class ExploreComponent implements OnInit {
   datapoints: any[];
 
   displayModes = [
-    {value: 'weekdays', text: 'Weekdays'},
-    {value: 'weekends', text: 'Weekends'},
-    {value: 'all', text: 'All days'},
+    {value: 'weekdays', text: 'Weekday average'},
+    {value: 'weekends', text: 'Weekend average'},
+    {value: 'all', text: 'All days average'},
     {value: 'single', text: 'Single days only'}
   ]
 
