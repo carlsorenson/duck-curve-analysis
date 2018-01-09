@@ -33,7 +33,12 @@ export class ExploreComponent implements OnInit {
     return Array(15);
   }
 
-  wattsToPixels(watts: number, pxOffset: number = 0): number {
+  wattsToPixelsMonthly(watts: number, pxOffset: number = 0): number {
+    var px = watts / 12 + pxOffset;
+    return px;
+  }
+
+  wattsToPixelsSingle(watts: number, pxOffset: number = 0): number {
     var px = watts / 40 + pxOffset;
     return px;
   }
