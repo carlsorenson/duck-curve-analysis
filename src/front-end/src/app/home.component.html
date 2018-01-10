@@ -1,14 +1,14 @@
 <main>
-  <h3>Duck Curve Analysis</h3>
+  <h4>Duck Curve - Background</h4>
   <p>Electricity providers have traditionally had to manage peaks in electric use. On hot days there would be a peak in the afternoon as air conditioning caused high demand. There can also be peaks in the morning and early evening as people get ready for work or come home, turn on HVAC systems and lights, and cook dinner.
   </p>
-  <p>The traditional pattern of peak demand is shifting in places where solar power is becoming significant. The midday peak can become the lowest net demand time period, as that's when the sun is shining. However, just as the solar power tapers off in the evening, people are arriving home and turning on appliances. This leads to a rapid rise in net electric demand, forming a curve that looks a bit like the profile of a duck sitting on water (red line):</p>
+  <p>The traditional pattern of peak demand is shifting in places where solar power is becoming significant. The midday peak can become the lowest net demand time period, as that's when the sun is shining. However, just as the solar power tapers off in the evening, people are arriving home and turning on appliances. This leads to a rapid rise in net electric demand, forming a curve that looks a bit like the profile of a duck sitting on water (orange line):</p>
   <img src='duck_curve_wiki.png' />
   <p style='font-size: 0.8em;'>(Via Wikipedia, credit: ArnoldReinhold - Own work based on data from caiso.org, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=52529738)</p>
-  <h2>Analysing my data</h2>
-  <p>I built this site to analyze <strong>real data</strong> about my electricity use at my house, collected and retrieved using a Neurio home energy monitor. The superimposed solar generation curve (yellow) and duck curve (red) are added so that we can see how well my personal electricity use matches the theory.</p>
+  <h4>Analyzing my data</h4>
+  <p>On the next page, 'Explore the Data', you will find a tool to see <strong>real data</strong> about my electricity use at my house, collected and retrieved using a Neurio home energy monitor. It shows the power used during each half-hour period of the day, averaged across a whole month so that we can see a trend. The superimposed solar generation curve (yellow) and duck curve (red) are added so that we can see how well my personal electricity use matches the theory.</p>
   <p>This site is built with Angular, SVG, Go, Google AppEngine, and Google Datastore. The Go back end provides an API that presents the data in a more useful way for the front end to consume - this includes abstracting and proxying calls to the Neurio API, caching, and calculating the averages across full months.</p>
-  <a href='/explore'>Explore the data</a>
+  <a href='/explore' style='font-size: 1.2em;'>Explore the data >>></a>
   <br /><br />
-  <a href='https://github.com/carlsorenson/duck-curve-analysis'>Explore the source code</a>
+  <a href='https://github.com/carlsorenson/duck-curve-analysis' style='font-size: 1.2em;'>Explore the source code >>></a>
 </main>
